@@ -1,18 +1,25 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { goToDetail, goToHome } from "../Routes/Coordinator";
+import React, { useContext } from "react";
+import Header from "../Components/Header/Header";
+import { PokedexContext } from "../Contexts/PokedexContext";
+import Pokecard from "../Components/Pokecard/Pokecard";
 
 const MyPage = () => {
-    const navigate = useNavigate()
-   
-    return(
-        
-        <>
-            <h2> My Page</h2>
-          
-            <button onClick={()=>goToHome(navigate)} >Todos Pokémons </button>
-            <button onClick={()=>goToDetail(navigate,1)} > Ver Detalhes </button>
+    const context = useContext(PokedexContext);
+    const { bichito } = context;  
 
+    return(
+        <>
+        <Header/>
+        <h2>Pokedex é aqui: </h2>
+           {
+                bichito.map( (element, index) => {
+                    return(<Pokecard key={index} 
+                            id={element.id}
+                            name={element.name} 
+                            url={element.url} />
+                        )
+                } )
+            }
         </>
     )
 }

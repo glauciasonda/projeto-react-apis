@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Router from "../../Routes/Router";
-import Header from "../Header/Header";
-
+import { PokedexContext } from "../../Contexts/PokedexContext"
 
 const Main = () => {
+    const [bichito, setBichito] = useState([]);
+
+    const context = {
+        bichito: bichito, 
+        setBichito: setBichito
+    }
+     
     return(
-        <>
-            <Header />
-            <Router />
-        </>
-        
+        <PokedexContext.Provider  value={context}>
+                <Router/>
+        </PokedexContext.Provider>          
     )
 }
 export default Main

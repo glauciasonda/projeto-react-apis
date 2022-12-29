@@ -1,17 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { goToMyPage } from "../Routes/Coordinator";
+import Header from "../Components/Header/Header"
+import Pokemon from "../Components/Pokemon/Pokemon";
+import { URL_API } from "../Constants/Constants";
+import { useRequest } from "../Hooks/useRequest";
+
 
 const Home = () => {
-    const navigate = useNavigate()
-
-
+        
+    const [ data, isLoading, isError ] = useRequest(URL_API)
+      
     return (
         <>
-            <h1>Home Page!!!</h1>
-            <button onClick={()=>goToMyPage(navigate)} > Ir para Pokedex </button>
+            <Header />
+            <h1>Home Page dos Pokemons... afeeee!!!</h1>
+            {isLoading && <p>...Carregando</p>}
+            {!isLoading && isError && <p>Ocorreu um erro! Para mais informações, consulte o Console</p>}
+            {!isLoading && data === null && <p>Nenhum Pokemon encontrado. Tente mais tarde!</p>}
+            {!isLoading && data !== null && <Pokemon list={data.results} />}
+            
         </>
     )
-
 }
 export default Home
