@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import Header from "../Components/Header/Header";
-import { PokedexContext } from "../Contexts/PokedexContext";
-import Pokecard from "../Components/Pokecard/Pokecard";
+import { PokedexContext } from "../../Contexts/PokedexContext";
+import Pokecard from "../../Components/Pokecard/Pokecard";
+import Header from "../../Components/Header/Header";
+import { Container, DivTitulo, Titulo } from "./StyleMyPage";
 
 const MyPage = () => {
     const context = useContext(PokedexContext);
@@ -9,8 +10,11 @@ const MyPage = () => {
 
     return(
         <>
-        <Header/>
-        <h2>Pokedex é aqui: </h2>
+         <Header />
+         <DivTitulo>
+            <Titulo>Meus Pokémons</Titulo>
+         </DivTitulo>
+         <Container>
            {
                 bichito.map( (element, index) => {
                     return(<Pokecard key={index} 
@@ -20,6 +24,7 @@ const MyPage = () => {
                         )
                 } )
             }
+        </Container>    
         </>
     )
 }

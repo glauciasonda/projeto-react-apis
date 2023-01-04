@@ -6,7 +6,6 @@ const Pokemon = (props) => {
     
    return(
         <>
-            <h2>Todos os Pokemons... bem aqui!!</h2>
             {
                 list.map( (element, index) => {
                     return(<Pokecard key={index} 
