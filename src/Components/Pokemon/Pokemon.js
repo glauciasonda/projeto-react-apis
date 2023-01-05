@@ -2,7 +2,7 @@ import React from "react";
 import Pokecard from "../Pokecard/Pokecard";
 
 const Pokemon = (props) => {
-    const { list } = props
+    const { list, page } = props
     
    return(
         <>
@@ -11,7 +11,8 @@ const Pokemon = (props) => {
                     return(<Pokecard key={index} 
                             id={index+1}
                             name={element.name} 
-                            url={element.url} />
+                            url={element.url}
+                            page={page} />
                         )
                 } )
             }

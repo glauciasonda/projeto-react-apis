@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { PokedexContext } from "../../Contexts/PokedexContext";
 import { useRequest } from "../../Hooks/useRequest";
 import { goToDetail } from "../../Routes/Coordinator";
-import {Container,PokemonNumber, PokemonName, PokemonType, TypesContainer, Pokeball, CatchButton, Pokemon, PokemonDetalhe} from './StylePokeCard'
+import {Container,PokemonNumber, PokemonName, PokemonType, TypesContainer, Pokeball, CatchButton, Pokemon, PokemonDetalhe, DeleteButton} from './StylePokeCard'
 import { getType } from "../../Utils/GetType";
 import wing from "../../Assets/wing.png";
 import { getColor } from "../../Utils/GetColor";
 
 const Pokecard = (props) => {
-    const { id, name, url } = props;
+    const { id, name, url, page } = props;
         
     const navigate = useNavigate();
     const [data, isLoading, isError] = useRequest(url);
@@ -60,7 +60,7 @@ const Pokecard = (props) => {
         } else {
             alert("Gotcha! O Pokémon foi adicionado a sua Pokédex");
         }
-    }
+    } 
 
     const excluir = (idPokemon) => {
         const capturados = bichito.filter((element) => {
@@ -80,22 +80,6 @@ const Pokecard = (props) => {
     
     return (
         <>
-           {/* <p>id: {id}</p>
-            <p>nome: {name}</p>
-            <p>sprite: {sprite}</p>
-            {type.map((element, index) =>{
-                return ( <ul key={index}>
-                            <li>{element.type.name}</li>
-                        </ul>
-                )})
-            }
-            <button onClick={()=> goToDetail(navigate, id)}> Detalhes </button>
-            <button onClick={capturar}> Capturar!!</button>
-            <button onClick={()=> excluir(id)}>Exluir</button>
-            <br />
-            <br />
-            <p> colorCard: {cardColor}</p>
-        */}   
             <Container color={cardColor}>
                 <div>
                     <PokemonNumber>{idP}</PokemonNumber>
@@ -111,7 +95,12 @@ const Pokecard = (props) => {
                     {id < 10 ? <Pokemon src={`https://www.serebii.net/swordshield/pokemon/00${id}.png`} alt="" /> : 
                                 <Pokemon src={`https://www.serebii.net/swordshield/pokemon/0${id}.png`} alt="" />  }
                      
-                    <CatchButton onClick={capturar}>Capturar!</CatchButton>
+                    {page === 'Home' ? <CatchButton onClick={capturar}>Capturar!</CatchButton> :
+                                       <DeleteButton onClick={()=> excluir(id)} >Excluir</DeleteButton>
+
+                    }
+                    
+                    
                 </div>
                 <Pokeball src={wing} alt="pokeball" />
             </Container>

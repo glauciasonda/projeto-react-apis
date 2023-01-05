@@ -8,9 +8,10 @@ import { Container, DivTitulo, Titulo } from "./StyleHome";
 const Home = () => {
         
     const [ data, isLoading, isError ] = useRequest(URL_API)
+    const page = "Home";
     return (
         <>
-            <Header />
+            <Header page={page} />
             <DivTitulo>
                 <Titulo>Todos Pokémons</Titulo>
             </DivTitulo>
@@ -19,7 +20,7 @@ const Home = () => {
                 {isLoading && <p>...Carregando</p>}
                 {!isLoading && isError && <p>Ocorreu um erro! Para mais informações, consulte o Console</p>}
                 {!isLoading && data === null && <p>Nenhum Pokemon encontrado. Tente mais tarde!</p>}
-                {!isLoading && data !== null && <Pokemon list={data.results} />}
+                {!isLoading && data !== null && <Pokemon list={data.results} page={page} />}
             </Container>
         </>
     )
