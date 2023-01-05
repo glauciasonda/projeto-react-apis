@@ -7,10 +7,11 @@ import { Container, DivTitulo, Titulo } from "./StyleMyPage";
 const MyPage = () => {
     const context = useContext(PokedexContext);
     const { bichito } = context;  
+    const page = "MyPage"; 
 
     return(
         <>
-         <Header />
+         <Header page={page} />
          <DivTitulo>
             <Titulo>Meus Pokémons</Titulo>
          </DivTitulo>

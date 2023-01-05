@@ -8,7 +8,6 @@ export const Container = styled.div`
   background-color: ${(props) => props.color};
   border-radius: 12px;
   display: flex;
-  
   position: relative;
   margin: 50px;
   color: #ffffff;
@@ -60,7 +59,7 @@ export const CatchButton = styled.button`
   padding: 4px 10px;
   width: 146px;
   height: 38px;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -70,6 +69,26 @@ export const CatchButton = styled.button`
   z-index: 2;
   color: #0F0F0F;
 `;
+
+export const DeleteButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  width: 146px;
+  height: 38px;
+  background: #FF6262;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 22px;
+  z-index: 2;
+  color: #FFFFFF;
+`;
+
 
 export const PokemonDetalhe = styled.p`
   width: 74px;

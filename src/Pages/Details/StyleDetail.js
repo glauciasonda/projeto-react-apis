@@ -4,9 +4,9 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     background-color: #5E5E5E;
  
@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 export const DivTitulo = styled.div`
     width: 100vw;
-    height: 15vh;
+    height: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
