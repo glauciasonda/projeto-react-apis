@@ -58,7 +58,7 @@ const Pokecard = (props) => {
             setBichito(capturados);
             alert("Gotcha! O Pokémon foi adicionado a sua Pokédex");
         } else {
-            alert("Gotcha! O Pokémon foi adicionado a sua Pokédex");
+            alert("Gotcha! O Pokémon já está na sua Pokédex. Tente capturar outro ;)");
         }
     } 
 
