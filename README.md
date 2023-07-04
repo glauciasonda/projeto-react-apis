@@ -31,6 +31,7 @@ Uma Pokedéx feita para exercicitar novas habilidades.
 - React Context
 - Axios
 - Styled Components
+- Hoocks (controle de estado, ciclo de vida do componente e custom hooks. )
 
 ## Como rodar este projeto
 ```bash
@@ -47,8 +48,6 @@ npm install
 npm run start 
 
 # A aplicação será iniciada na porta 3000, acesse pelo navegador:  http://localhost:3000
-
-
 
 ```
 
